@@ -3,7 +3,7 @@ import { Paper, Typography, TextField, Grid } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 const ConfigForm = ({ config, setConfig }) => (
-  <Paper elevation={4} sx={{ p: 4, bgcolor: 'background.paper' }}>
+  <Paper elevation={4} sx={{ p: 4, bgcolor: '#2c2c2e', color: 'white' }}>
     <Typography variant="h5" gutterBottom>
       <SettingsIcon sx={{ verticalAlign: 'middle', mr: 1 }} /> Configurações Iniciais
     </Typography>
@@ -18,6 +18,8 @@ const ConfigForm = ({ config, setConfig }) => (
             value={config[key]}
             onChange={(e) => setConfig({ ...config, [key]: e.target.value })}
             variant="filled"
+            InputProps={{ sx: { bgcolor: '#3a3a3c', color: 'white' } }}
+            InputLabelProps={{ sx: { color: '#ccc' } }}
           />
         </Grid>
       ))}

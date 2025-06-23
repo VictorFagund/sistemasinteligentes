@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Results = ({ results }) => (
   <Box>
-    <Typography variant="h4" gutterBottom>📊 Resultado da Alocação</Typography>
+    <Typography variant="h4" gutterBottom sx={{ color: '#90caf9' }}>📊 Resultado da Alocação</Typography>
 
     {results.sprints.map((s, i) => (
       <motion.div
@@ -13,7 +13,7 @@ const Results = ({ results }) => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: i * 0.2 }}
       >
-        <Paper sx={{ p: 3, mb: 2, borderLeft: '6px solid #388e3c' }}>
+        <Paper sx={{ p: 3, mb: 2, borderLeft: '6px solid #388e3c', backgroundColor: '#2c2c2e', color: 'white' }}>
           <Typography variant="h6">Sprint {i + 1}</Typography>
           <Typography>Custo total: {s.custo}</Typography>
           <Typography>Fitness: {s.fitness}</Typography>
@@ -30,7 +30,7 @@ const Results = ({ results }) => (
     ))}
 
     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }}>
-      <Paper sx={{ p: 3, borderLeft: '6px solid #d32f2f' }}>
+      <Paper sx={{ p: 3, borderLeft: '6px solid #d32f2f', backgroundColor: '#2c2c2e', color: 'white' }}>
         <Typography variant="h6" color="error">Requisitos não alocados</Typography>
         <List dense>
           {results.nao_alocados.map((hu, i) => (

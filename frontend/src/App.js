@@ -1,89 +1,157 @@
-import React, { useState, useMemo } from 'react';
-import { ThemeProvider, createTheme, CssBaseline, Container, Typography, Button, Box } from '@mui/material';
-import BoltIcon from '@mui/icons-material/Bolt';
+import React, { useState } from 'react';
 import HUForm from './HUForm';
 import ConfigForm from './ConfigForm';
 import Results from './Results';
-import axios from 'axios';
+import {
+  Container,
+  Box,
+  Typography,
+  Button,
+  Paper,
+  Divider
+} from '@mui/material';
+import PsychologyIcon from '@mui/icons-material/Psychology';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 function App() {
-  const [config, setConfig] = useState({ sprints: 1, limite: 100 });
+  const [config, setConfig] = useState({ sprints: 2, limite: 6 });
   const [hus, setHUs] = useState([]);
   const [results, setResults] = useState(null);
-
-  // Tema escuro ativado por padrão
-  const darkTheme = useMemo(() => createTheme({
-    palette: {
-      mode: 'dark',
-      background: {
-        default: '#121212',
-        paper: '#1e1e1e',
-      },
-      primary: {
-        main: '#90caf9',
-      },
-      secondary: {
-        main: '#f48fb1',
-      },
-    },
-    shape: {
-      borderRadius: 12,
-    },
-    typography: {
-      fontFamily: 'Roboto, sans-serif',
-    }
-  }), []);
 
   const runAlgorithm = async () => {
     const payload = {
       num_sprints: Number(config.sprints),
       limite_custo: Number(config.limite),
-      requisitos: hus.map((h, i) => ({
-        id: i + 1,
-        ...h,
+      requisitos: hus.map((h, index) => ({
+        id: index + 1,
+        nome: h.nome,
         custo: Number(h.custo),
         importancia: Number(h.importancia),
         criticidade: Number(h.criticidade),
-        impacto: Number(h.impacto)
+        impacto: Number(h.impacto),
       }))
     };
 
     try {
-      const resp = await axios.post('http://127.0.0.1:8000/otimizar', payload);
-      setResults(resp.data);
-    } catch (e) {
-      alert(e.response ? `Erro ${e.response.status}` : 'Falha na conexão');
+      const response = await fetch('http://127.0.0.1:8000/otimizar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+      setResults(data);
+    } catch (error) {
+      alert('Erro ao conectar à API');
+      console.error(error);
     }
   };
 
+  const clearScreen = () => {
+    setHUs([]);
+    setResults(null);
+  };
+
   return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <Container maxWidth="md" sx={{ py: 4 }}>
-        <Box display="flex" justifyContent="center" mb={3}>
-          <Typography variant="h4">🚀 Alocação de Requisitos</Typography>
-        </Box>
+    <Box
+      sx={{
+        background: 'linear-gradient(to bottom right, #1c1c1e, #2c2c2e)',
+        color: 'white',
+        minHeight: '100vh',
+        py: 4,
+      }}
+    >
+      <Container maxWidth="md">
+        <Paper
+          elevation={6}
+          sx={{
+            p: 4,
+            mb: 4,
+            borderRadius: 3,
+            backgroundColor: '#2c2c2e',
+            color: 'white',
+            boxShadow: '0 8px 24px rgba(0,0,0,0.3)'
+          }}
+        >
+          <Box textAlign="center" mb={2}>
+            <Typography
+              variant="h4"
+              fontWeight="bold"
+              gutterBottom
+              letterSpacing={1}
+              sx={{ color: '#90caf9' }}
+            >
+              <PsychologyIcon sx={{ fontSize: '2rem', verticalAlign: 'middle', mr: 1 }} />
+              Sistema Inteligente de Alocação de Requisitos
+            </Typography>
+            <Typography variant="subtitle1" sx={{ color: '#b0bec5' }}>
+              Otimize funcionalidades por sprint com base em importância, criticidade e impacto
+            </Typography>
+          </Box>
+          <Divider sx={{ mb: 3, backgroundColor: '#546e7a' }} />
 
-        <ConfigForm config={config} setConfig={setConfig} />
-        <Box mt={3}>
-          <HUForm hus={hus} setHUs={setHUs} />
-        </Box>
+          <ConfigForm config={config} setConfig={setConfig} darkMode />
+          <Box my={4}>
+            <HUForm hus={hus} setHUs={setHUs} darkMode />
+          </Box>
 
-        <Box textAlign="center" mt={4}>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            endIcon={<BoltIcon />}
-            onClick={runAlgorithm}
+          <Box textAlign="center" mt={4}>
+            <Button
+              variant="contained"
+              size="large"
+              startIcon={<PsychologyIcon />}
+              onClick={runAlgorithm}
+              sx={{
+                px: 5,
+                py: 1.5,
+                fontWeight: 'bold',
+                background: 'linear-gradient(to right, #2196f3, #21cbf3)',
+                color: '#fff',
+                '&:hover': {
+                  background: 'linear-gradient(to right, #1976d2, #1de9b6)',
+                }
+              }}
+            >
+              Executar Alocação
+            </Button>
+
+            <Button
+              variant="outlined"
+              startIcon={<RestartAltIcon />}
+              onClick={clearScreen}
+              sx={{
+                mt: 2,
+                ml: 2,
+                color: '#ef5350',
+                borderColor: '#ef5350',
+                fontWeight: 'bold',
+                '&:hover': {
+                  backgroundColor: '#ef5350',
+                  color: 'white',
+                }
+              }}
+            >
+              Limpar Tela
+            </Button>
+          </Box>
+        </Paper>
+
+        {results && (
+          <Paper
+            elevation={5}
+            sx={{
+              p: 4,
+              borderRadius: 3,
+              mt: 4,
+              backgroundColor: '#1f1f1f',
+              color: 'white'
+            }}
           >
-            Rodar Algoritmo
-          </Button>
-        </Box>
-
-        {results && <Box mt={4}><Results results={results} /></Box>}
+            <Results results={results} />
+          </Paper>
+        )}
       </Container>
-    </ThemeProvider>
+    </Box>
   );
 }
 

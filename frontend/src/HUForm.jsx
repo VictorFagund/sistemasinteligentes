@@ -1,5 +1,8 @@
 import React from 'react';
-import { Paper, Typography, TextField, Grid, Button, List, ListItem, Divider, Box } from '@mui/material';
+import {
+  Paper, Typography, TextField, Grid,
+  Button, List, ListItem, Divider, Box
+} from '@mui/material';
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -21,7 +24,7 @@ const HUForm = ({ hus, setHUs }) => {
   };
 
   return (
-    <Paper elevation={4} sx={{ p: 4, bgcolor: 'background.paper' }}>
+    <Paper elevation={4} sx={{ p: 4, bgcolor: '#2c2c2e', color: 'white' }}>
       <Typography variant="h5" gutterBottom>📌 Cadastrar Requisitos</Typography>
 
       <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
@@ -39,6 +42,8 @@ const HUForm = ({ hus, setHUs }) => {
                     type={field === 'nome' ? 'text' : 'number'}
                     error={touched[field] && !!errors[field]}
                     helperText={touched[field] && errors[field]}
+                    InputProps={{ sx: { bgcolor: '#3a3a3c', color: 'white' } }}
+                    InputLabelProps={{ sx: { color: '#ccc' } }}
                   />
                 </Grid>
               ))}
@@ -50,6 +55,12 @@ const HUForm = ({ hus, setHUs }) => {
                 variant="contained"
                 color="secondary"
                 startIcon={<AddTaskIcon />}
+                sx={{
+                  background: 'linear-gradient(to right, #ab47bc, #7c4dff)',
+                  '&:hover': {
+                    background: 'linear-gradient(to right, #8e24aa, #651fff)'
+                  }
+                }}
               >
                 Adicionar Requisito
               </Button>
@@ -61,7 +72,7 @@ const HUForm = ({ hus, setHUs }) => {
       {hus.length > 0 && (
         <Box mt={4}>
           <Typography variant="h6">📋 Requisitos adicionados</Typography>
-          <Divider sx={{ my: 1 }} />
+          <Divider sx={{ my: 1, backgroundColor: '#444' }} />
           <List>
             {hus.map((hu, i) => (
               <ListItem key={i} sx={{ py: 1 }}>
