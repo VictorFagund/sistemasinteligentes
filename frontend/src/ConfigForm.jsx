@@ -1,3 +1,4 @@
+// ✅ ConfigForm.jsx
 import React from 'react';
 import { Paper, Typography, TextField, Grid } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -18,8 +19,25 @@ const ConfigForm = ({ config, setConfig }) => (
             value={config[key]}
             onChange={(e) => setConfig({ ...config, [key]: e.target.value })}
             variant="filled"
-            InputProps={{ sx: { bgcolor: '#3a3a3c', color: 'white' } }}
-            InputLabelProps={{ sx: { color: '#ccc' } }}
+            InputProps={{
+              inputProps: { min: 0, step: 1 },
+              sx: {
+                '& input[type=number]': {
+                  MozAppearance: 'textfield'
+                },
+                '& input[type=number]::-webkit-outer-spin-button': {
+                  WebkitAppearance: 'none',
+                  margin: 0
+                },
+                '& input[type=number]::-webkit-inner-spin-button': {
+                  WebkitAppearance: 'none',
+                  margin: 0
+                },
+                bgcolor: '#3a3a3c',
+                color: 'white'
+              }
+            }}
+            InputLabelProps={{ sx: { color: '#ccc' }, shrink: true }}
           />
         </Grid>
       ))}

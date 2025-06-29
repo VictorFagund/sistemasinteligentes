@@ -1,0 +1,392 @@
+{
+    "melhor_fitness_total": 56.6,
+    "sprints": [
+        {
+            "sprint": 1,
+            "custo_total": 17,
+            "fitness": 11.6,
+            "requisitos": [
+                {
+                    "id": 5,
+                    "importancia": 2,
+                    "criticidade": 1,
+                    "impacto": 1,
+                    "custo": 2
+                },
+                {
+                    "id": 12,
+                    "importancia": 3,
+                    "criticidade": 4,
+                    "impacto": 1,
+                    "custo": 1
+                },
+                {
+                    "id": 16,
+                    "importancia": 5,
+                    "criticidade": 1,
+                    "impacto": 1,
+                    "custo": 3
+                },
+                {
+                    "id": 27,
+                    "importancia": 4,
+                    "criticidade": 1,
+                    "impacto": 5,
+                    "custo": 6
+                },
+                {
+                    "id": 34,
+                    "importancia": 4,
+                    "criticidade": 2,
+                    "impacto": 2,
+                    "custo": 2
+                },
+                {
+                    "id": 36,
+                    "importancia": 3,
+                    "criticidade": 2,
+                    "impacto": 3,
+                    "custo": 3
+                }
+            ]
+        },
+        {
+            "sprint": 2,
+            "custo_total": 15,
+            "fitness": 12.7,
+            "requisitos": [
+                {
+                    "id": 6,
+                    "importancia": 5,
+                    "criticidade": 4,
+                    "impacto": 3,
+                    "custo": 1
+                },
+                {
+                    "id": 9,
+                    "importancia": 4,
+                    "criticidade": 2,
+                    "impacto": 5,
+                    "custo": 4
+                },
+                {
+                    "id": 23,
+                    "importancia": 5,
+                    "criticidade": 4,
+                    "impacto": 1,
+                    "custo": 1
+                },
+                {
+                    "id": 26,
+                    "importancia": 5,
+                    "criticidade": 4,
+                    "impacto": 1,
+                    "custo": 4
+                },
+                {
+                    "id": 28,
+                    "importancia": 1,
+                    "criticidade": 3,
+                    "impacto": 3,
+                    "custo": 1
+                },
+                {
+                    "id": 31,
+                    "importancia": 4,
+                    "criticidade": 2,
+                    "impacto": 1,
+                    "custo": 1
+                },
+                {
+                    "id": 37,
+                    "importancia": 1,
+                    "criticidade": 2,
+                    "impacto": 1,
+                    "custo": 1
+                },
+                {
+                    "id": 42,
+                    "importancia": 5,
+                    "criticidade": 4,
+                    "impacto": 4,
+                    "custo": 1
+                },
+                {
+                    "id": 48,
+                    "importancia": 3,
+                    "criticidade": 3,
+                    "impacto": 2,
+                    "custo": 1
+                }
+            ]
+        },
+        {
+            "sprint": 3,
+            "custo_total": 20,
+            "fitness": 9.2,
+            "requisitos": [
+                {
+                    "id": 7,
+                    "importancia": 4,
+                    "criticidade": 2,
+                    "impacto": 5,
+                    "custo": 4
+                },
+                {
+                    "id": 15,
+                    "importancia": 4,
+                    "criticidade": 3,
+                    "impacto": 2,
+                    "custo": 2
+                },
+                {
+                    "id": 32,
+                    "importancia": 4,
+                    "criticidade": 2,
+                    "impacto": 4,
+                    "custo": 6
+                },
+                {
+                    "id": 41,
+                    "importancia": 3,
+                    "criticidade": 2,
+                    "impacto": 1,
+                    "custo": 3
+                },
+                {
+                    "id": 46,
+                    "importancia": 4,
+                    "criticidade": 1,
+                    "impacto": 4,
+                    "custo": 5
+                }
+            ]
+        },
+        {
+            "sprint": 4,
+            "custo_total": 19,
+            "fitness": 7.8,
+            "requisitos": [
+                {
+                    "id": 18,
+                    "importancia": 4,
+                    "criticidade": 2,
+                    "impacto": 5,
+                    "custo": 3
+                },
+                {
+                    "id": 25,
+                    "importancia": 2,
+                    "criticidade": 1,
+                    "impacto": 2,
+                    "custo": 2
+                },
+                {
+                    "id": 39,
+                    "importancia": 3,
+                    "criticidade": 1,
+                    "impacto": 3,
+                    "custo": 6
+                },
+                {
+                    "id": 40,
+                    "importancia": 5,
+                    "criticidade": 4,
+                    "impacto": 1,
+                    "custo": 4
+                },
+                {
+                    "id": 50,
+                    "importancia": 4,
+                    "criticidade": 4,
+                    "impacto": 3,
+                    "custo": 4
+                }
+            ]
+        },
+        {
+            "sprint": 5,
+            "custo_total": 16,
+            "fitness": 11.5,
+            "requisitos": [
+                {
+                    "id": 2,
+                    "importancia": 5,
+                    "criticidade": 1,
+                    "impacto": 2,
+                    "custo": 1
+                },
+                {
+                    "id": 20,
+                    "importancia": 5,
+                    "criticidade": 2,
+                    "impacto": 4,
+                    "custo": 4
+                },
+                {
+                    "id": 24,
+                    "importancia": 2,
+                    "criticidade": 3,
+                    "impacto": 4,
+                    "custo": 2
+                },
+                {
+                    "id": 29,
+                    "importancia": 5,
+                    "criticidade": 4,
+                    "impacto": 4,
+                    "custo": 3
+                },
+                {
+                    "id": 33,
+                    "importancia": 4,
+                    "criticidade": 3,
+                    "impacto": 1,
+                    "custo": 4
+                },
+                {
+                    "id": 35,
+                    "importancia": 5,
+                    "criticidade": 4,
+                    "impacto": 5,
+                    "custo": 2
+                }
+            ]
+        }
+    ],
+    "nao_alocados": [
+        {
+            "id": 1,
+            "importancia": 3,
+            "criticidade": 4,
+            "impacto": 3,
+            "custo": 5
+        },
+        {
+            "id": 3,
+            "importancia": 1,
+            "criticidade": 5,
+            "impacto": 4,
+            "custo": 3
+        },
+        {
+            "id": 4,
+            "importancia": 2,
+            "criticidade": 5,
+            "impacto": 3,
+            "custo": 4
+        },
+        {
+            "id": 8,
+            "importancia": 2,
+            "criticidade": 3,
+            "impacto": 3,
+            "custo": 4
+        },
+        {
+            "id": 10,
+            "importancia": 3,
+            "criticidade": 5,
+            "impacto": 5,
+            "custo": 4
+        },
+        {
+            "id": 11,
+            "importancia": 4,
+            "criticidade": 3,
+            "impacto": 4,
+            "custo": 4
+        },
+        {
+            "id": 13,
+            "importancia": 3,
+            "criticidade": 4,
+            "impacto": 4,
+            "custo": 4
+        },
+        {
+            "id": 14,
+            "importancia": 1,
+            "criticidade": 4,
+            "impacto": 3,
+            "custo": 5
+        },
+        {
+            "id": 17,
+            "importancia": 1,
+            "criticidade": 2,
+            "impacto": 2,
+            "custo": 2
+        },
+        {
+            "id": 19,
+            "importancia": 3,
+            "criticidade": 3,
+            "impacto": 4,
+            "custo": 6
+        },
+        {
+            "id": 21,
+            "importancia": 3,
+            "criticidade": 2,
+            "impacto": 3,
+            "custo": 6
+        },
+        {
+            "id": 22,
+            "importancia": 2,
+            "criticidade": 3,
+            "impacto": 3,
+            "custo": 5
+        },
+        {
+            "id": 30,
+            "importancia": 2,
+            "criticidade": 1,
+            "impacto": 1,
+            "custo": 5
+        },
+        {
+            "id": 38,
+            "importancia": 2,
+            "criticidade": 4,
+            "impacto": 4,
+            "custo": 4
+        },
+        {
+            "id": 43,
+            "importancia": 2,
+            "criticidade": 2,
+            "impacto": 4,
+            "custo": 4
+        },
+        {
+            "id": 44,
+            "importancia": 3,
+            "criticidade": 5,
+            "impacto": 3,
+            "custo": 5
+        },
+        {
+            "id": 45,
+            "importancia": 3,
+            "criticidade": 1,
+            "impacto": 4,
+            "custo": 5
+        },
+        {
+            "id": 47,
+            "importancia": 1,
+            "criticidade": 5,
+            "impacto": 1,
+            "custo": 2
+        },
+        {
+            "id": 49,
+            "importancia": 1,
+            "criticidade": 1,
+            "impacto": 1,
+            "custo": 5
+        }
+    ]
+}

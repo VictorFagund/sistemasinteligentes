@@ -1,3 +1,4 @@
+// App.jsx
 import React, { useState } from 'react';
 import HUForm from './HUForm';
 import ConfigForm from './ConfigForm';
@@ -8,7 +9,8 @@ import {
   Typography,
   Button,
   Paper,
-  Divider
+  Divider,
+  Stack
 } from '@mui/material';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
@@ -28,7 +30,7 @@ function App() {
         custo: Number(h.custo),
         importancia: Number(h.importancia),
         criticidade: Number(h.criticidade),
-        impacto: Number(h.impacto),
+        impacto: Number(h.impacto)
       }))
     };
 
@@ -36,7 +38,7 @@ function App() {
       const response = await fetch('http://127.0.0.1:8000/otimizar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(payload)
       });
 
       const data = await response.json();
@@ -47,9 +49,10 @@ function App() {
     }
   };
 
-  const clearScreen = () => {
-    setHUs([]);
+  const limparTela = () => {
     setResults(null);
+    setHUs([]);
+    setConfig({ sprints: 2, limite: 6 });
   };
 
   return (
@@ -58,7 +61,7 @@ function App() {
         background: 'linear-gradient(to bottom right, #1c1c1e, #2c2c2e)',
         color: 'white',
         minHeight: '100vh',
-        py: 4,
+        py: 4
       }}
     >
       <Container maxWidth="md">
@@ -96,43 +99,46 @@ function App() {
           </Box>
 
           <Box textAlign="center" mt={4}>
-            <Button
-              variant="contained"
-              size="large"
-              startIcon={<PsychologyIcon />}
-              onClick={runAlgorithm}
-              sx={{
-                px: 5,
-                py: 1.5,
-                fontWeight: 'bold',
-                background: 'linear-gradient(to right, #2196f3, #21cbf3)',
-                color: '#fff',
-                '&:hover': {
-                  background: 'linear-gradient(to right, #1976d2, #1de9b6)',
-                }
-              }}
-            >
-              Executar Alocação
-            </Button>
-
-            <Button
-              variant="outlined"
-              startIcon={<RestartAltIcon />}
-              onClick={clearScreen}
-              sx={{
-                mt: 2,
-                ml: 2,
-                color: '#ef5350',
-                borderColor: '#ef5350',
-                fontWeight: 'bold',
-                '&:hover': {
-                  backgroundColor: '#ef5350',
-                  color: 'white',
-                }
-              }}
-            >
-              Limpar Tela
-            </Button>
+            <Stack direction="row" spacing={2} justifyContent="center">
+              <Button
+                variant="contained"
+                size="large"
+                startIcon={<PsychologyIcon />}
+                onClick={runAlgorithm}
+                sx={{
+                  px: 5,
+                  py: 1.5,
+                  fontWeight: 'bold',
+                  background: 'linear-gradient(to right, #2196f3, #21cbf3)',
+                  color: '#fff',
+                  '&:hover': {
+                    background: 'linear-gradient(to right, #1976d2, #1de9b6)'
+                  }
+                }}
+              >
+                Executar Alocação
+              </Button>
+              <Button
+                variant="outlined"
+                size="large"
+                startIcon={<RestartAltIcon />}
+                onClick={limparTela}
+                sx={{
+                  px: 5,
+                  py: 1.5,
+                  fontWeight: 'bold',
+                  borderColor: '#ef5350',
+                  color: '#ef5350',
+                  '&:hover': {
+                    backgroundColor: '#ffebee',
+                    color: '#b71c1c',
+                    borderColor: '#b71c1c'
+                  }
+                }}
+              >
+                Limpar Tela
+              </Button>
+            </Stack>
           </Box>
         </Paper>
 
@@ -147,7 +153,7 @@ function App() {
               color: 'white'
             }}
           >
-            <Results results={results} />
+            <Results results={results} hus={hus} />
           </Paper>
         )}
       </Container>
