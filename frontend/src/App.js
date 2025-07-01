@@ -1,4 +1,4 @@
-// App.jsx
+
 import React, { useState } from 'react';
 import HUForm from './HUForm';
 import ConfigForm from './ConfigForm';
@@ -16,7 +16,7 @@ import PsychologyIcon from '@mui/icons-material/Psychology';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 function App() {
-  const [config, setConfig] = useState({ sprints: 2, limite: 6 });
+  const [config, setConfig] = useState({ sprints: "", limite: "" });
   const [hus, setHUs] = useState([]);
   const [results, setResults] = useState(null);
 
@@ -52,7 +52,7 @@ function App() {
   const limparTela = () => {
     setResults(null);
     setHUs([]);
-    setConfig({ sprints: 2, limite: 6 });
+    setConfig({ sprints: " ", limite:" " });
   };
 
   return (

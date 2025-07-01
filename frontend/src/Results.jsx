@@ -1,4 +1,4 @@
-// ✅ Results.jsx
+
 import React from 'react';
 import { Paper, Typography, List, ListItem, Divider, Box } from '@mui/material';
 import { motion } from 'framer-motion';
