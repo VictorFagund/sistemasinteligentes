@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Paper, Typography, List, ListItem, Divider, Box } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -8,7 +7,25 @@ const Results = ({ results, hus }) => {
 
   return (
     <Box>
-      <Typography variant="h4" gutterBottom>📊 Resultado da Alocação</Typography>
+      <Typography variant="h4" gutterBottom>
+        📊 Resultado da Alocação
+      </Typography>
+
+      <Box
+        sx={{
+          p: 2,
+          mb: 3,
+          mt: -1,
+          borderRadius: 2,
+          backgroundColor: '#1f1f1f',
+          border: '1px solid #90caf9',
+          display: 'inline-block',
+        }}
+      >
+        <Typography variant="subtitle1" sx={{ color: '#90caf9', fontWeight: 'bold' }}>
+           Melhor Fitness Total: {results.melhor_fitness_total}
+        </Typography>
+      </Box>
 
       {results.sprints.map((sprint, i) => (
         <motion.div
@@ -17,11 +34,23 @@ const Results = ({ results, hus }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: i * 0.2 }}
         >
-          <Paper sx={{ p: 3, mb: 2, borderLeft: '6px solid #388e3c', bgcolor: '#2c2c2e', color: 'white' }}>
-            <Typography variant="h6" fontWeight="bold">Sprint {i + 1}</Typography>
+          <Paper
+            sx={{
+              p: 3,
+              mb: 2,
+              borderLeft: '6px solid #388e3c',
+              bgcolor: '#2c2c2e',
+              color: 'white',
+            }}
+          >
+            <Typography variant="h6" fontWeight="bold">
+              Sprint {i + 1}
+            </Typography>
             <Typography variant="body1">Custo total: {sprint.custo_total}</Typography>
             <Typography variant="body1">Fitness: {sprint.fitness}</Typography>
-            <Typography mt={2} fontWeight="bold">Requisitos alocados:</Typography>
+            <Typography mt={2} fontWeight="bold">
+              Requisitos alocados:
+            </Typography>
             <List dense>
               {sprint.requisitos.map((hu, j) => (
                 <ListItem key={j}>
@@ -35,8 +64,17 @@ const Results = ({ results, hus }) => {
 
       {results.nao_alocados.length > 0 && (
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }}>
-          <Paper sx={{ p: 3, borderLeft: '6px solid #d32f2f', bgcolor: '#2c2c2e', color: 'white' }}>
-            <Typography variant="h6" color="error" fontWeight="bold">Sprint Não Alocada</Typography>
+          <Paper
+            sx={{
+              p: 3,
+              borderLeft: '6px solid #d32f2f',
+              bgcolor: '#2c2c2e',
+              color: 'white',
+            }}
+          >
+            <Typography variant="h6" color="error" fontWeight="bold">
+              Sprint Não Alocada
+            </Typography>
             <List dense>
               {results.nao_alocados.map((hu, i) => (
                 <ListItem key={i}>
